@@ -1,0 +1,32 @@
+<div class="row">
+  <div class="col-md-3">
+
+  </div>
+
+  <div class="col-md-6">
+    <% if @error_message.nil? %>
+      <div class="well">
+        <h1>Conditions in <%= @name %>:</h1>
+        <h1><%= @description %> <%= image_tag "http://openweathermap.org/img/w/#{@icon}.png" %></h1>
+        <h1><%= @temp %>&deg;F</h1>
+        <h2><%= @humidity %>% Humidity</h2>
+        <h4>High: <%= @temp_high %>&deg;F / Low: <%= @temp_low %>&deg;F</h4>
+      </div>
+    <% else %>
+      <div class="alert alert-danger" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <strong>Error:</strong> <%= @error_message %>
+      </div>
+    <% end %>
+
+    <div class="well">
+      <h1>Lookup another location</h1>
+      <%= render 'form' %>
+    </div>
+  </div>
+
+
+  <div class="col-md-3">
+
+  </div>
+</div>
